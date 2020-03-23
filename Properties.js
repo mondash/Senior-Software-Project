@@ -1,0 +1,1 @@
+//acess properties from database
