@@ -8,6 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Title from './Title';
 
+
 // update when database is connected
 function createData(id, sdate, name, address, active, type) {
     return { id, sdate, name, address, active, type };

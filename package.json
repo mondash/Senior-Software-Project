@@ -1,22 +1,23 @@
 {
-  "name": "keller_williams",
-  "version": "1.0.0",
   "dependencies": {
-    "adb": "^0.2.0",
+    "babel": "^6.23.0",
+    "babel-preset-expo": "^8.1.0",
     "clsx": "latest",
     "expo": "^36.0.2",
-    "googleapis": "^48.0.0",
+    "npx": "^10.2.2",
     "prop-types": "latest",
     "react": "latest",
     "react-dom": "^16.13.1",
-    "react-google-calendar-api": "latest",
-    "react-native": "^0.61.5",
-    "react-native-http": "0.0.3",
     "react-native-web": "^0.12.2",
+    "watchman": "^1.0.0",
     "yarn": "^1.22.4"
   },
   "devDependencies": {
-    "@material-ui/core": "^4.9.7",
-    "@material-ui/icons": "^4.9.1"
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@material-ui/core": "^4.9.8",
+    "@material-ui/icons": "^4.9.1",
+    "babel-loader": "^8.1.0",
+    "webpack": "^4.42.1"
   }
 }

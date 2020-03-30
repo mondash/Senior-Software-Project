@@ -18,8 +18,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from './listItems';
-import apiCalendar from './calendar';
-import Team from './Teams';
+
+import MyApp from './Teams';
 import Property from './Properties';
 import Clients from "./clients";
 import Link from "@material-ui/core/Link";
@@ -177,13 +177,13 @@ export default function Dashboard() {
                         {/* apiCalendar */}
                         <Grid item xs={12} md={8} lg={9}>
                             <Paper className={fixedHeightPaper}>
-                                <apiCalendar />
+                                <MyApp />
                             </Paper>
                         </Grid>
                         {/* Upcoming Event */}
                         <Grid item xs={12} md={4} lg={3}>
                             <Paper className={fixedHeightPaper}>
-                                <apiCalendar />            // incorporate events here
+                                <MyApp />            // incorporate events here
                             </Paper>
                         </Grid>
                         {/* Recent Clients */}
