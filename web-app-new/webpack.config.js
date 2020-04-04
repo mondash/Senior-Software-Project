@@ -10,12 +10,13 @@ const sassRegex = /\.global\.(scss|sass)$/;
 const sassModuleRegex = /\.(scss|sass)$/;
 
 module.exports = {
-  mode: mode,
-  entry: path.resolve(__dirname, 'src/index.js'),
-  output: {
-    filename: '[name].[contenthash].js',
-    path: path.resolve(__dirname, 'dist'),
+  devtool: isDevelopment ? 'inline-source-map' : null,
+  devServer: {
+    open: true,
+    port: 9000,
   },
+  entry: path.resolve(__dirname, 'src/index.js'),
+  mode: mode,
   module: {
     rules: [
       {
@@ -60,23 +61,6 @@ module.exports = {
       },
     ],
   },
-  resolve: {
-    alias: {
-      '#root': path.resolve(__dirname, 'src'),
-    },
-  },
-  plugins: [
-    new CleanWebpackPlugin(),
-    new DotenvWebpackPlugin(),
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'src/index.html'),
-      filename: path.resolve(__dirname, 'dist/index.html'),
-    }),
-    new MiniCssExtractPlugin({
-      filename: isDevelopment ? '[name].css' : '[name].[hash].css',
-      chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css',
-    }),
-  ],
   node: {
     fs: 'empty',
   },
@@ -97,9 +81,25 @@ module.exports = {
       },
     },
   },
-  devtool: 'inline-source-map',
-  devServer: {
-    open: true,
-    port: 9000,
+  output: {
+    filename: '[name].[contenthash].js',
+    path: path.resolve(__dirname, 'dist'),
+  },
+  plugins: [
+    new CleanWebpackPlugin(),
+    new DotenvWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'src/index.html'),
+      filename: path.resolve(__dirname, 'dist/index.html'),
+    }),
+    new MiniCssExtractPlugin({
+      filename: isDevelopment ? '[name].css' : '[name].[hash].css',
+      chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css',
+    }),
+  ],
+  resolve: {
+    alias: {
+      '#root': path.resolve(__dirname, 'src'),
+    },
   },
 };
