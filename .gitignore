@@ -1,0 +1,6 @@
+.DS_Store
+/appspec.yml
+/deploy.lock
+node_modules
+
+secrets

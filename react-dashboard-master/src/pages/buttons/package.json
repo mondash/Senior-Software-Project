@@ -1,0 +1,9 @@
+{
+  "name": "Buttons",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./Buttons.js",
+  "dependencies": {
+    "react-calendar": "^3.0.1"
+  }
+}

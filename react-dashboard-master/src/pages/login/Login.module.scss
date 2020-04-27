@@ -1,0 +1,21 @@
+@import '../../styles/app';
+
+.root {
+  padding-top: 25vh;
+
+}
+
+body {
+  background-color:  #990000 ;
+  color: black;
+}
+
+.widget {
+  max-width: 360px;
+  margin: 0 auto;
+  padding: 30px !important;
+
+  :global .form-control {
+    font-size: 14px;
+  }
+}
