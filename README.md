@@ -1,4 +1,4 @@
-# Senior Software Project Template
+# Senior Software Project
 
 Uses the following technologies:
 
