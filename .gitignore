@@ -2,3 +2,5 @@
 /appspec.yml
 /deploy.lock
 node_modules
+
+secrets

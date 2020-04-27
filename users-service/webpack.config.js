@@ -1,21 +1,26 @@
-const path = require("path");
-const webpackNodeExternals = require("webpack-node-externals");
+const path = require('path');
+const webpackNodeExternals = require('webpack-node-externals');
+
+const mode = process.env.NODE_ENV || 'production';
+const isDevelopment = mode === 'development';
 
 module.exports = {
-  entry: "./src/index.js",
+  devtool: isDevelopment ? 'inline-source-map' : null,
+  entry: path.resolve(__dirname, '/src/index.js'),
   externals: [webpackNodeExternals()],
-  mode: "production",
+  mode: mode,
   module: {
     rules: [
       {
         test: /\.js$/,
-        use: "babel-loader"
-      }
-    ]
+        exclude: /node_modules/,
+        use: 'babel-loader',
+      },
+    ],
   },
   output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "./dist")
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, './dist'),
   },
-  target: "node"
+  target: 'node',
 };

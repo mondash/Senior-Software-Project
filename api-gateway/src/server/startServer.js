@@ -1,22 +1,24 @@
-import { ApolloServer } from "apollo-server-express";
-import cookieParser from "cookie-parser";
-import cors from "cors";
-import express from "express";
+import { ApolloServer } from 'apollo-server-express';
+import cookieParser from 'cookie-parser';
+import cors from 'cors';
+import express from 'express';
+import fs from 'fs';
+import https from 'https';
 
-import resolvers from "#root/graphql/resolvers";
-import typeDefs from "#root/graphql/typeDefs";
-import accessEnv from "#root/helpers/accessEnv";
+import resolvers from '#root/graphql/resolvers';
+import typeDefs from '#root/graphql/typeDefs';
+import accessEnv from '#root/helpers/accessEnv';
 
-import formatGraphQLErrors from "./formatGraphQLErrors";
-import injectSession from "./injectSession";
+import formatGraphQLErrors from './formatGraphQLErrors';
+import injectSession from './injectSession';
 
-const PORT = accessEnv("PORT", 7000);
+const PORT = accessEnv('PORT', 7000);
 
 const apolloServer = new ApolloServer({
-  context: a => a,
+  context: (a) => a,
   formatError: formatGraphQLErrors,
   resolvers,
-  typeDefs
+  typeDefs,
 });
 
 const app = express();
@@ -26,14 +28,27 @@ app.use(cookieParser());
 app.use(
   cors({
     origin: (origin, cb) => cb(null, true),
-    credentials: true
+    credentials: true,
   })
 );
 
 app.use(injectSession);
 
-apolloServer.applyMiddleware({ app, cors: false, path: "/graphql" });
+apolloServer.applyMiddleware({ app, cors: false, path: '/graphql' });
 
-app.listen(PORT, "0.0.0.0", () => {
+// https
+//   .createServer(
+//     {
+//       key: fs.readFileSync('/secrets/ssp.key'),
+//       cert: fs.readFileSync('/secrets/ssp.crt'),
+//     },
+//     app
+//   )
+//   .listen(PORT, '0.0.0.0', () => {
+//     console.info(`API gateway listening on ${PORT}`);
+//   });
+
+app.listen(PORT, '0.0.0.0', () => {
   console.info(`API gateway listening on ${PORT}`);
 });
+

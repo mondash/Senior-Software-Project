@@ -1,6 +1,6 @@
 FROM node:12
 
-COPY . /opt/app
+COPY . /opt/app/users-service
 
 WORKDIR /opt/app/users-service
 

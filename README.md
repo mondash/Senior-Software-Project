@@ -2,27 +2,26 @@
 
 Uses the following technologies:
 
+- Apollo Graphql
+- Babel
 - Docker (and Docker Compose)
 - React
+- Redux
 - Node.js
 - MySQL
 - Sequelize
-
-## TODO
-
-Update sequelize
+- Webpack
 
 ## Setup
 
 ```sh
-# in main directory
-docker-compose up
+# In main directory
+docker-compose up -d
 
-# in a separate terminal, inside classifieds-app
+# In service containers
+yarn db:migrate
+
+# In react-dashboard-master
 yarn
-yarn watch
+yarn start
 ```
-
-## Deploy
-
-Check out my video series for a step-by-step tutorial on how to deploy this.

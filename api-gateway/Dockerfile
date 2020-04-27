@@ -1,6 +1,6 @@
 FROM node:12
 
-COPY . /opt/app
+COPY . /opt/app/api-gateway
 
 WORKDIR /opt/app/api-gateway
 
