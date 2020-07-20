@@ -25,7 +25,7 @@
     "express": "^4.17.1",
     "got": "^10.6.0",
     "graphql": "^14.6.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "typescript": "^3.8.2",
     "webpack": "^4.41.6",
     "webpack-cli": "^3.3.11",
